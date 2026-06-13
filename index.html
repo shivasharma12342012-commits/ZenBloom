@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenBloom | Grow Your Focus</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="bg-[#F9F6F0] text-[#2A3439] font-sans h-screen flex flex-col items-center justify-center relative">
+
+    <div class="absolute top-5 right-5 bg-white px-5 py-3 rounded-2xl shadow-md border-2 border-[#7CA982] flex gap-6">
+        <div class="text-center">
+            <p class="text-xs text-gray-500 uppercase font-bold">Tokens</p>
+            <p id="token-count" class="text-xl font-black text-[#7CA982]">0</p>
+        </div>
+        <div class="text-center">
+            <p class="text-xs text-gray-500 uppercase font-bold">Total Mins</p>
+            <p id="minutes-count" class="text-xl font-black text-[#7CA982]">0</p>
+        </div>
+    </div>
+
+    <div class="text-center bg-white p-10 rounded-3xl shadow-xl border border-gray-100 max-w-md w-full">
+        
+        <h1 class="text-4xl font-extrabold mb-2 text-[#7CA982] tracking-tight">ZenBloom 🌸</h1>
+        <p class="text-gray-500 mb-8 font-medium">Grow your focus, starve your distractions.</p>
+
+        <div id="plant-stage" class="text-8xl mb-8 transition-all duration-500 ease-in-out hover:scale-110">
+            🌰
+        </div>
+
+        <div class="w-full bg-gray-200 rounded-full h-4 mb-6 shadow-inner overflow-hidden">
+            <div id="progress-bar" class="bg-[#7CA982] h-4 rounded-full transition-all ease-linear" style="width: 100%"></div>
+        </div>
+
+        <div id="timer-display" class="text-7xl font-mono font-bold mb-8 text-gray-800 tracking-tighter">
+            25:00
+        </div>
+
+        <div class="space-x-4">
+            <button id="start-btn" class="bg-[#7CA982] hover:bg-[#68946d] text-white font-bold py-4 px-8 rounded-full transition-all hover:scale-105 shadow-lg active:scale-95">
+                Start Growing
+            </button>
+            <button id="stop-btn" class="bg-red-100 hover:bg-red-200 text-red-600 font-bold py-4 px-8 rounded-full transition-all hover:scale-105 shadow-md active:scale-95">
+                Give Up
+            </button>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
