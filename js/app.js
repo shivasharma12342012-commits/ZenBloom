@@ -100,21 +100,21 @@ function switchMode(mode) {
     
     // Reset all tab button styles
     [modeStudyBtn, modeShortBtn, modeLongBtn].forEach(btn => {
-        btn.className = "text-gray-500 py-2 rounded-lg hover:text-gray-700 transition-all";
+        btn.classList.remove('mode-btn-active');
     });
 
     // Apply active styles to selected mode and update times
     if (mode === 'study') {
         TOTAL_SESSION_TIME = 25 * 60;
-        modeStudyBtn.className = "bg-white text-[#2A3439] py-2 rounded-lg shadow-sm transition-all font-bold";
+        modeStudyBtn.classList.add('mode-btn-active');
         progressBar.style.backgroundColor = "#7CA982";
     } else if (mode === 'short') {
         TOTAL_SESSION_TIME = 5 * 60;
-        modeShortBtn.className = "bg-white text-[#2A3439] py-2 rounded-lg shadow-sm transition-all font-bold";
+        modeShortBtn.classList.add('mode-btn-active');
         progressBar.style.backgroundColor = "#3490dc"; // Soft Blue for break
     } else if (mode === 'long') {
         TOTAL_SESSION_TIME = 15 * 60;
-        modeLongBtn.className = "bg-white text-[#2A3439] py-2 rounded-lg shadow-sm transition-all font-bold";
+        modeLongBtn.classList.add('mode-btn-active');
         progressBar.style.backgroundColor = "#9561e2"; // Soft Purple for long rest
     }
 
