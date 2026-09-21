@@ -10,54 +10,59 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <link rel="stylesheet" href="css/custom.css">
 </head>
-<body class="bg-[#F9F6F0] text-[#2A3439] font-sans h-screen flex flex-col items-center justify-center relative px-4">
+<body class="heavenly-body font-sans h-screen flex flex-col items-center justify-center relative px-4 overflow-hidden">
+    <div class="ambient-layer" aria-hidden="true">
+        <span class="sky-orb orb-one"></span>
+        <span class="sky-orb orb-two"></span>
+        <span class="sky-orb orb-three"></span>
+        <span class="light-grain"></span>
+    </div>
 
-    <div class="absolute top-5 right-5 bg-white px-5 py-3 rounded-2xl shadow-md border-2 border-[#7CA982] flex gap-6">
+    <div class="stats-panel">
         <div class="text-center">
-            <p class="text-xs text-gray-500 uppercase font-bold">Tokens</p>
-            <p id="token-count" class="text-xl font-black text-[#7CA982]">0</p>
+            <p class="stat-label">Tokens</p>
+            <p id="token-count" class="stat-value">0</p>
         </div>
         <div class="text-center">
-            <p class="text-xs text-gray-500 uppercase font-bold">Total Mins</p>
-            <p id="minutes-count" class="text-xl font-black text-[#7CA982]">0</p>
+            <p class="stat-label">Total Mins</p>
+            <p id="minutes-count" class="stat-value">0</p>
         </div>
     </div>
 
-    <div class="text-center bg-white p-8 rounded-3xl shadow-xl border border-gray-100 max-w-md w-full transition-all duration-300">
-        
-        <h1 class="text-4xl font-extrabold mb-1 text-[#7CA982] tracking-tight">ZenBloom 🌸</h1>
-        <p class="text-gray-400 text-sm mb-6 font-medium">Grow your focus, starve your distractions.</p>
+    <div class="main-card text-center max-w-md w-full transition-all duration-300">
+        <h1 class="text-4xl font-extrabold mb-1 tracking-tight title-glow">ZenBloom 🌸</h1>
+        <p class="subtitle-text text-sm mb-6 font-medium">Grow your focus, starve your distractions.</p>
 
-        <div class="grid grid-cols-3 gap-2 p-1 bg-gray-100 rounded-xl mb-6 text-xs font-bold">
-            <button id="mode-study" class="bg-white text-[#2A3439] py-2 rounded-lg shadow-sm transition-all target-mode">📚 Study</button>
-            <button id="mode-short" class="text-gray-500 py-2 rounded-lg hover:text-gray-700 transition-all">☕ Break</button>
-            <button id="mode-long" class="text-gray-500 py-2 rounded-lg hover:text-gray-700 transition-all">🛋️ Rest</button>
+        <div class="mode-selector grid grid-cols-3 gap-2 p-1 mb-6 text-xs font-bold">
+            <button id="mode-study" class="mode-btn mode-btn-active">📚 Study</button>
+            <button id="mode-short" class="mode-btn">☕ Break</button>
+            <button id="mode-long" class="mode-btn">🛋️ Rest</button>
         </div>
 
-        <div id="plant-stage" class="text-8xl mb-6 transition-all duration-500 ease-in-out hover:scale-110 select-none">
+        <div id="plant-stage" class="text-8xl mb-6 transition-all duration-500 ease-in-out hover:scale-110 select-none heavenly-plant">
             🌰
         </div>
 
-        <div class="w-full bg-gray-200 rounded-full h-3.5 mb-6 shadow-inner overflow-hidden">
-            <div id="progress-bar" class="bg-[#7CA982] h-full rounded-full transition-all ease-linear" style="width: 100%"></div>
+        <div class="progress-shell w-full rounded-full h-3.5 mb-6 overflow-hidden">
+            <div id="progress-bar" class="h-full rounded-full transition-all ease-linear" style="width: 100%"></div>
         </div>
 
-        <div id="timer-display" class="text-7xl font-mono font-bold mb-6 text-gray-800 tracking-tighter">
+        <div id="timer-display" class="timer-text text-7xl font-mono font-bold mb-6 tracking-tighter">
             25:00
         </div>
 
         <div class="space-x-2 mb-6">
-            <button id="start-btn" class="bg-[#7CA982] hover:bg-[#68946d] text-white font-bold py-3.5 px-8 rounded-full transition-all hover:scale-105 shadow-lg active:scale-95">
+            <button id="start-btn" class="primary-btn font-bold py-3.5 px-8 rounded-full transition-all">
                 Start Session
             </button>
-            <button id="stop-btn" class="bg-red-50 hover:bg-red-100 text-red-500 border border-red-200 font-bold py-3.5 px-6 rounded-full transition-all hover:scale-105 shadow-md active:scale-95">
+            <button id="stop-btn" class="secondary-btn font-bold py-3.5 px-6 rounded-full transition-all">
                 Reset
             </button>
         </div>
 
-        <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-2xl border border-green-100/50">
-            <p class="text-xs font-bold text-[#7CA982] uppercase tracking-wider mb-1">Mindful Check-In</p>
-            <p id="motivation-text" class="text-sm text-gray-600 italic">"An empty tank cannot take you anywhere. Ready to plant your next seed?"</p>
+        <div class="checkin-card p-4 rounded-2xl">
+            <p class="text-xs font-bold uppercase tracking-wider mb-1 checkin-label">Mindful Check-In</p>
+            <p id="motivation-text" class="text-sm italic checkin-text">"An empty tank cannot take you anywhere. Ready to plant your next seed?"</p>
         </div>
     </div>
 

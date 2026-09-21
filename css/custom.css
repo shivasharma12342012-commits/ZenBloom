@@ -1,3 +1,219 @@
+:root {
+    --glow-green: #93fcb5;
+    --glass-white: rgba(255, 255, 255, 0.19);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --ink-deep: #eaf9ff;
+    --mode-text: #ecf7ff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.heavenly-body {
+    background:
+        radial-gradient(circle at 20% 15%, #c7efff 0%, transparent 40%),
+        radial-gradient(circle at 80% 20%, #e7d8ff 0%, transparent 42%),
+        radial-gradient(circle at 50% 90%, #86f0d3 0%, transparent 45%),
+        linear-gradient(130deg, #5f7ee6 0%, #7b6be4 35%, #4eaac8 70%, #8dd2ff 100%);
+    color: var(--ink-deep);
+}
+
+.ambient-layer {
+    position: absolute;
+    inset: -10%;
+    pointer-events: none;
+}
+
+.sky-orb {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(3px);
+    opacity: 0.65;
+    animation: floatDrift 14s ease-in-out infinite;
+}
+
+.orb-one {
+    width: 220px;
+    height: 220px;
+    top: 5%;
+    left: 8%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(155, 255, 237, 0.2));
+}
+
+.orb-two {
+    width: 300px;
+    height: 300px;
+    right: 10%;
+    top: 20%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.85), rgba(190, 212, 255, 0.2));
+    animation-delay: -4s;
+}
+
+.orb-three {
+    width: 280px;
+    height: 280px;
+    left: 28%;
+    bottom: 0%;
+    background: radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.85), rgba(218, 187, 255, 0.2));
+    animation-delay: -8s;
+}
+
+.light-grain {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.28) 1px, transparent 1px);
+    background-size: 4px 4px;
+    opacity: 0.14;
+    animation: twinkle 7s linear infinite;
+}
+
+.main-card,
+.stats-panel,
+.mode-btn,
+.primary-btn,
+.secondary-btn,
+.checkin-card,
+.progress-shell {
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+}
+
+.stats-panel {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    display: flex;
+    gap: 1.2rem;
+    padding: 0.85rem 1.3rem;
+    border-radius: 1.1rem;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    box-shadow: 0 10px 35px rgba(50, 53, 133, 0.22);
+    z-index: 10;
+}
+
+.stat-label {
+    color: rgba(234, 249, 255, 0.75);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.stat-value {
+    color: #e9fff4;
+    text-shadow: 0 0 16px rgba(147, 252, 181, 0.65);
+    font-weight: 800;
+    font-size: 1.25rem;
+}
+
+.main-card {
+    position: relative;
+    z-index: 3;
+    border-radius: 2rem;
+    padding: 2rem;
+    background: var(--glass-white);
+    border: 1px solid var(--glass-border);
+    box-shadow:
+        0 25px 60px rgba(40, 52, 124, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    animation: cardPulse 8s ease-in-out infinite;
+}
+
+.title-glow {
+    color: #e9fff9;
+    text-shadow:
+        0 0 14px rgba(170, 255, 225, 0.8),
+        0 0 30px rgba(195, 215, 255, 0.65);
+}
+
+.subtitle-text {
+    color: rgba(228, 244, 255, 0.83);
+}
+
+.mode-selector {
+    border-radius: 0.9rem;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.mode-btn {
+    color: var(--mode-text);
+    border-radius: 0.75rem;
+    border: 1px solid transparent;
+    padding: 0.55rem 0.5rem;
+    transition: all 0.25s ease;
+}
+
+.mode-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.mode-btn-active {
+    background: rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.55);
+    color: #405d69;
+    box-shadow: inset 0 0 16px rgba(255, 255, 255, 0.45);
+}
+
+.heavenly-plant {
+    filter: drop-shadow(0 0 14px rgba(211, 255, 227, 0.7));
+}
+
+.progress-shell {
+    background: rgba(255, 255, 255, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.48);
+}
+
+#progress-bar {
+    background: linear-gradient(90deg, #7effb7 0%, #7de8ff 50%, #9db3ff 100%);
+    box-shadow: 0 0 14px rgba(126, 255, 183, 0.65);
+    transition: width 1s linear, background-color 0.25s ease;
+}
+
+.timer-text {
+    color: #f3feff;
+    text-shadow: 0 0 20px rgba(195, 241, 255, 0.62);
+}
+
+.primary-btn,
+.secondary-btn {
+    border: 1px solid rgba(255, 255, 255, 0.52);
+    color: white;
+    box-shadow: 0 10px 22px rgba(39, 48, 112, 0.25);
+}
+
+.primary-btn {
+    background: linear-gradient(140deg, rgba(123, 255, 190, 0.95), rgba(102, 169, 255, 0.88));
+}
+
+.secondary-btn {
+    background: linear-gradient(140deg, rgba(255, 183, 209, 0.8), rgba(178, 155, 255, 0.78));
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+    transform: translateY(-2px) scale(1.03);
+}
+
+.primary-btn:active,
+.secondary-btn:active {
+    transform: scale(0.96);
+}
+
+.checkin-card {
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.42);
+}
+
+.checkin-label {
+    color: rgba(222, 255, 236, 0.95);
+}
+
+.checkin-text {
+    color: rgba(231, 247, 255, 0.88);
+}
+
 /* Smooth breathing animation for the plant */
 @keyframes breathe {
     0% { transform: scale(1); }
@@ -9,7 +225,18 @@
     animation: breathe 3s infinite ease-in-out;
 }
 
-/* Forces the progress bar to shrink smoothly instead of jumping */
-#progress-bar {
-    transition: width 1s linear;
+@keyframes floatDrift {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-18px) translateX(14px); }
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.1; }
+    50% { opacity: 0.2; }
+    100% { opacity: 0.1; }
+}
+
+@keyframes cardPulse {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
 }
